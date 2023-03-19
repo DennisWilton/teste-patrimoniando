@@ -21,6 +21,7 @@
   gap: 1rem;
   align-items: center;
   justify-content: space-between;
+  user-select: none;
 
   &__avatar {
     width: min-content;
@@ -41,12 +42,18 @@
     h2 {
       font-size: 22px;
       line-height: 100%;
+      user-select: text;
     }
     p {
       font-weight: 300;
       font-size: 17px;
       color: #6b6b6b;
       line-height: 100%;
+      display: block;
+      width: fit-content;
+      &:hover {
+        color: #aaa;
+      }
     }
   }
 }

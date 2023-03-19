@@ -23,6 +23,26 @@
             <button>Configurações</button>
           </div>
         </div>
+
+        <TriangleDivider />
+
+        <div class="dashboard__crypto-selector">
+          <CryptoSelector />
+        </div>
+
+        <div class="dashboard__content__sub-content">
+          <div class="dashboard__wallet">
+            <DashboardWallet />
+          </div>
+
+          <div class="dashboard__asset-info">
+            <DashboardAssetInfo />
+          </div>
+
+          <div class="dashboard__operation__history">
+            <DashboardOperationHistory />
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -31,6 +51,11 @@
 <script setup lang="ts">
 import DashboardProfile from './DashboardProfile.vue';
 import GearIcon from '../../icons/Gear.vue';
+import TriangleDivider from '../../components/TriangleDivider';
+import CryptoSelector from '../../components/CryptoSelector';
+import DashboardWallet from './DashboardWallet.vue';
+import DashboardAssetInfo from './DashboardAssetInfo.vue';
+import DashboardOperationHistory from './DashboardOperationHistory.vue';
 </script>
 
 <style lang="scss" scoped>
@@ -48,6 +73,8 @@ import GearIcon from '../../icons/Gear.vue';
     max-width: 1088px;
     display: grid;
     grid-template-rows: 20px 1fr;
+    color: #000;
+    box-shadow: 0px 5px 10px #0001;
   }
 
   &__outbox {
@@ -80,6 +107,11 @@ import GearIcon from '../../icons/Gear.vue';
     gap: 10px;
     padding: 0px 20px;
     border-radius: 20px;
+    user-select: none;
+
+    &:hover {
+      background: #111;
+    }
 
     &__time {
       font-weight: bold;
@@ -91,6 +123,7 @@ import GearIcon from '../../icons/Gear.vue';
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      user-select: all;
     }
 
     &__author {
@@ -140,6 +173,23 @@ import GearIcon from '../../icons/Gear.vue';
         }
       }
     }
+
+    &__sub-content {
+      display: flex;
+      flex-flow: column;
+      gap: 40px;
+    }
+  }
+
+  &__crypto-selector {
+    display: flex;
+    justify-content: center;
+    transform: translateY(-25%);
+  }
+
+  &__operation__history {
+    height: 200px;
+    overflow: hidden;
   }
 }
 
