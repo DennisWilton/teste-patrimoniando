@@ -75,6 +75,7 @@ import DashboardOperationHistory from './DashboardOperationHistory.vue';
     grid-template-rows: 20px 1fr;
     color: #000;
     box-shadow: 0px 5px 10px #0001;
+    padding: 0 0;
   }
 
   &__outbox {
@@ -205,6 +206,7 @@ import DashboardOperationHistory from './DashboardOperationHistory.vue';
     }
 
     &__container {
+      padding: 0 5rem;
       border-radius: 20px;
     }
 
