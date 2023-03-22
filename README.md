@@ -1,18 +1,62 @@
-# Vue 3 + TypeScript + Vite
+# Instalação do projeto:
+- Clone o repositório para uma pasta qualquer em sua máquina;
+- Abra o terminal nesta pasta, e digite:
+- `npm install && npm run dev`
+- Um link para o localhost na porta padrão, 5173, deverá ser exibido no terminal assim que o build for completo.
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Estrutura do projeto:
+O projeto possui 4 managers, e 1 service, sendo eles:
 
-## Recommended IDE Setup
+### AuthManager: 
+Responsável pelo fluxo de autenticação do usuário e por armazenar as informações básicas do usuário logado.
+Foi feito de uma maneira bem simbólico, para representar um fluxo real de login.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+### CryptoManager: 
+Responsável por gerir informações acerca das criptomoedas disponíveis, como preço em USD, nome, símbolo, bem como armazenar o estado da moeda selecionada atualmente.
 
-## Type Support For `.vue` Imports in TS
+### PositionManager: 
+Responsável por armazenar as informações de posição do usuário em cada asset (criptomoeda), mantendo uma lista de operações geradas fake. Também de maneira minimamente funcional, para representar um caso real.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+### RateManager: 
+Responsável por armazenar as cotações das moedas fiduciárias, bem como prover métodos de conversão (ex.: 2 USD em BRL).
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+### CoincapService: 
+Responsável por comunicar-se com a API do Coincap, buscando por exemplo, lista de criptomoedas disponíveis, preços em USD, cotações de moedas fiduciárias, etc.
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+
+## Passos no planejamento do projeto.
+### Prototipação do projeto com Figma
+Layout responsivo
+
+## Criação do projeto com uso do Vite
+Vite é o builder mais utilizado na atualidade, por ser construído com a tecnologia ESBuild em dev, deixando o bundler final apenas para builds de produção.
+
+## Inicialização do repositório git.
+
+## Instalação das bibliotecas necessárias:
+### Sass:	
+Pre-processador CSS, utilizado para estilização dos componentes.
+
+### Axios: 
+HTTP requester largamente utilizado, com vantagens de prover diversos tratamentos como: retrocompatibilidade, transformação de dados JSON automática, interceptadores, etc.
+
+### vue-router@4:
+Componente responsável por rotear páginas na aplicação Vue.
+
+## Definição inicial da estrutura do projeto
+Haverão duas páginas: login e dashboard  
+A página do login não foi estilizada. Ela existe apenas para simbolizar o roteamento da aplicação.
+
+## Definição e implementação dos módulos que servirão dados e funções, como conversão, busca de cotações, etc.
+
+## Criação dos componentes mais atômicos, como:
+### CryptoSelector: 
+responsável por exibir a criptomoeda selecionada atualmente e/ou trocar para a próxima disponível.
+
+
+### Table: 
+uma tabela que possui uma rígida estrutura de dados dinâmica, onde as colunas são ligadas (via tipagem TS) com as propriedades presentes no objeto a ser exibido.
+Definição de recursos, como: SVGs dos ativos (foi adicionado para BTC, ETH e USDT).
+
+## Implementação de métodos utilitários para agirem como helpers ao longo de toda a aplicação. 
+São funções puras que retornam valores tratados, como formatação, arredondamento de números, etc.
