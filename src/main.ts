@@ -22,13 +22,11 @@ const coincapService = new CoincapService();
 coincapService.getAvailableAssets().then((response) => {
   if (response) {
     CryptoManager.updateAssetInfo(response.data.data);
-    console.log(CryptoManager);
   }
 });
 
 coincapService.getRate(RATES_ID['BRL']).then((response) => {
   if (response) {
-    console.log('Setted rate', response);
     RateManager.setRate('BRL', response.rate);
   }
 });
