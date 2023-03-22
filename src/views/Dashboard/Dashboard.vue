@@ -45,6 +45,7 @@
         </div>
       </div>
     </div>
+    <DashboardCoins />
   </div>
 </template>
 
@@ -56,6 +57,7 @@ import CryptoSelector from '../../components/CryptoSelector';
 import DashboardWallet from './DashboardWallet.vue';
 import DashboardAssetInfo from './DashboardAssetInfo.vue';
 import DashboardOperationHistory from './DashboardOperationHistory.vue';
+import DashboardCoins from './DashboardCoins/DashboardCoins.vue';
 </script>
 
 <style lang="scss" scoped>
@@ -65,8 +67,13 @@ import DashboardOperationHistory from './DashboardOperationHistory.vue';
   display: grid;
   place-items: center;
   padding: 60px 0;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+  grid-template-rows: 1fr;
 
   &__container {
+    grid-row: 1/2;
+    grid-column: 1/2;
     background: #fafafa;
     width: 100%;
     height: 100%;
@@ -203,6 +210,10 @@ import DashboardOperationHistory from './DashboardOperationHistory.vue';
       &__settings {
         display: none;
       }
+    }
+
+    &__coins {
+      display: grid;
     }
 
     &__container {
